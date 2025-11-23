@@ -1,3 +1,5 @@
+import type { Relationship } from './Relationship'
+
 export interface Person {
   id: number
   first_name: string
@@ -7,4 +9,5 @@ export interface Person {
   father_id: number | null
   mother_id: number | null
   children_ids: number[]
+  relationships: Relationship[]
 }
