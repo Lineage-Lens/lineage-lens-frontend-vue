@@ -1,8 +1,18 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { GoogleLogin } from 'vue3-google-login'
+import auth from './auth.ts'
+
+function callback(response?: { credential?: string }) {
+  if (response?.credential) {
+    localStorage.setItem(auth.accessTokenLocalStorageKey, response.credential)
+  }
+}
+</script>
 
 <template>
   <header>
     <h1>Lineage Lens</h1>
+    <GoogleLogin :callback="callback" />
     <nav>
       <RouterLink to="/">Home</RouterLink>
     </nav>
