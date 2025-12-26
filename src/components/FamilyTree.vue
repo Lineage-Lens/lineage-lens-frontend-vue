@@ -6,7 +6,7 @@
 import { onMounted, watchEffect } from 'vue'
 import f3 from 'family-chart'
 import 'family-chart/styles/family-chart.css'
-import type { Person } from '@/types/Person'
+import { Gender, type Person } from '@/types/Person'
 
 const { people } = defineProps<{
   people: Person[]
@@ -20,7 +20,7 @@ onMounted(() => {
         'first name': person.first_name,
         'last name': person.last_name,
         birthday: person.birthday,
-        gender: person.gender,
+        gender: Gender.toFirstLetter(person.gender),
       },
       rels: {
         parents: [String(person.father_id), String(person.mother_id)],
