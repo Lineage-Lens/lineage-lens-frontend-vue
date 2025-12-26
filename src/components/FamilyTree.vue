@@ -19,7 +19,7 @@ onMounted(() => {
       data: {
         'first name': person.first_name,
         'last name': person.last_name,
-        birthday: person.birthday,
+        birthday: person.birth_date,
         gender: Gender.toFirstLetter(person.gender),
       },
       rels: {
