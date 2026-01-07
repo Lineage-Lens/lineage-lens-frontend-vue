@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { GoogleLogin } from 'vue3-google-login'
-import auth from './auth.ts'
+import { authStore } from './stores/auth.ts'
 
 function callback(response?: { credential?: string }) {
   if (response?.credential) {
-    localStorage.setItem(auth.accessTokenLocalStorageKey, response.credential)
+    authStore.setToken(response.credential);
   }
 }
 </script>
